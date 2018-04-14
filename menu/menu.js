@@ -25,7 +25,7 @@ var Crawler = require('crawler'),
                     })
 
                     menus.push({
-                      day : day,
+                      day : day-1,
                       time : mealtime,
                       name : foods,
                     })

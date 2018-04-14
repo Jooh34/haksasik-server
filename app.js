@@ -7,8 +7,6 @@ var express = require("express"),
 
 var app = express();
 
-var routes = require("./routes/main");
-var users = require("./routes/users");
 var menus = require("./routes/menus");
 var dates = require("./routes/dates");
 
@@ -18,8 +16,6 @@ app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use("/",routes);
-app.use("/users", users);
 app.use("/menus", menus);
 app.use("/dates", dates);
 
@@ -37,7 +33,6 @@ db.once('open', function(){
 mongoose.connect('mongodb://localhost:27017/start');
 
 // DEFINE MODEL
-var User = require('./models/user');
 var Menu = require('./models/menu');
 var date = require('./models/date');
 
