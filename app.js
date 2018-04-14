@@ -39,6 +39,9 @@ var date = require('./models/date');
 // Scheduling Menu-Crawling
 var menu = require('./menu/menu');
 
+
+menu.crawl();
+
 cron.schedule('* */1 * * *', function(){
   console.log('running every hour');
   menu.crawl()

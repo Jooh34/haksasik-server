@@ -25,7 +25,7 @@ var Crawler = require('crawler'),
                     })
 
                     menus.push({
-                      day : day-1,
+                      day : day,
                       time : mealtime,
                       name : foods,
                     })
@@ -41,8 +41,9 @@ var Crawler = require('crawler'),
 
                   if(day > 0) {
                     date = $(this).text();
+                    realday = Number(day)-1;
                     dates.push({
-                      day : day-1,
+                      day : realday,
                       date : date
                     })
                   }
@@ -53,7 +54,7 @@ var Crawler = require('crawler'),
                 // check DB should update
                 var isOld;
 
-                DateModel.findOne({'day' : 1}, function(err, result) {
+                DateModel.findOne({'day' : 0}, function(err, result) {
                     if (err) throw err;
                     if (result !== null) isOld = result.date != dates[0].date
                     else isOld = true;
